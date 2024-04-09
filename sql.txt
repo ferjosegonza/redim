@@ -1,0 +1,89 @@
+
+DROP DATABASE IF EXISTS redim;
+CREATE DATABASE redim;
+USE redim;
+
+
+create table usuarios
+(cod_usu int auto_increment primary key,
+usuario varchar (20),
+pass varchar (20),
+num_inmobiliaria int);
+
+create table clientes
+(cod_clie int auto_increment primary key,
+direccion varchar (20),
+localidad varchar (20),
+nombre varchar (20),
+apellido varchar (20),
+email varchar (50),
+telefono varchar (20),
+condicion varchar (20),
+cochera varchar (20),
+detalles varchar (100),
+presup_alq varchar (20),
+presup_com varchar (20),
+horarios varchar (20));
+
+create table inmuebles
+(cod_inmueble int auto_increment primary key,
+direccion varchar (20),
+precio int,
+num_inmobiliaria int,
+sup_total varchar (20),
+sup_cubierta varchar (20),
+descripcion varchar (100),
+condicion varchar (20),
+cochera varchar (20),
+financiacion varchar (20),
+oferta varchar (20),
+tipo varchar (20),
+num_dorm int);
+
+create table reservas
+(cod_clie int, 
+cod_inmueble int, 
+fecha date,
+CONSTRAINT reservas_pkey PRIMARY KEY (cod_clie,cod_inmueble)); 
+
+create table inmobiliaria
+(cod_inmobiliaria int auto_increment primary key,
+descripcion varchar (255));
+
+Insert into usuarios (usuario,pass,num_inmobiliaria) values ('111','111',1);
+
+Insert into usuarios (usuario,pass,num_inmobiliaria) values ('222','222',2);
+
+Insert into usuarios (usuario,pass,num_inmobiliaria) values ('333','333',3);
+
+
+Insert into inmuebles (direccion,precio, num_inmobiliaria, sup_total, sup_cubierta, descripcion, condicion, cochera, financiacion, oferta, tipo, num_dorm)
+values ('salta 1111',350,1,'500m2','200m2','buen diseño','alquiler','no','no','si','casa', 3);
+
+Insert into inmuebles (direccion,precio, num_inmobiliaria, sup_total, sup_cubierta, descripcion, condicion, cochera, financiacion, oferta, tipo, num_dorm)
+values ('salta 2222',25000,2,'70m2','60m2','buen diseño','venta','no','si','no','casa', 2);
+
+Insert into inmuebles (direccion,precio, num_inmobiliaria, sup_total, sup_cubierta, descripcion, condicion, cochera, financiacion, oferta, tipo, num_dorm)
+values ('salta 3333',35000,3,'500m2','350m2','buen diseño','venta','no','no','si','casa', 1);
+
+
+
+Insert into inmuebles (direccion,precio, num_inmobiliaria, sup_total, sup_cubierta, descripcion, condicion, cochera, financiacion, oferta, tipo, num_dorm)
+values ('rioja 1111',40000,1,'500m2','500m2','excelente ubicacion','venta','no','no','si','departamento', 3);
+
+Insert into inmuebles (direccion,precio, num_inmobiliaria, sup_total, sup_cubierta, descripcion, condicion, cochera, financiacion, oferta, tipo, num_dorm)
+values ('rioja 2222',25000,2,'70m2','70m2','excelente ubicacion','venta','no','si','no','departamento', 2);
+
+Insert into inmuebles (direccion,precio, num_inmobiliaria, sup_total, sup_cubierta, descripcion, condicion, cochera, financiacion, oferta, tipo, num_dorm)
+values ('rioja 3333',350,3,'500m2','500m2','excelente ubicacion','alquiler','no','no','si','departamento', 1);
+
+
+
+Insert into inmuebles (direccion,precio, num_inmobiliaria, sup_total, sup_cubierta, descripcion, condicion, cochera, financiacion, oferta, tipo, num_dorm)
+values ('bolivar 1111',350,1,'500m2','0','amplio, en esquina','alquiler','no','no','si','terreno', 0);
+
+Insert into inmuebles (direccion,precio, num_inmobiliaria, sup_total, sup_cubierta, descripcion, condicion, cochera, financiacion, oferta, tipo, num_dorm)
+values ('bolivar 2222',15000,2,'70m2','0','amplio, en esquina','venta','no','si','no','terreno', 0);
+
+Insert into inmuebles (direccion,precio, num_inmobiliaria, sup_total, sup_cubierta, descripcion, condicion, cochera, financiacion, oferta, tipo, num_dorm)
+values ('bolivar 3333',35000,3,'500m2','0','amplio, en esquina','venta','no','no','si','terreno', 0);
